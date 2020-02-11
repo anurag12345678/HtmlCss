@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>java script</title>    
+<script type="text/javascript">
+  function  myfunction(){
+      var x,text,special,y;
+      text=/^[0-9]$/;
+      special=/^[!\&\$\@\#\/\*\%\^\_\-]$/;
+      x=document.getElementById("name").value;
+      y=document.getElementById("password").value;
+     
+      if(x==""||x==null){
+          alert("name cannot be empty")
+          return false;
+      }
+   
+   if(x.match(text))   {
+       alert("invalid ,name cant be number")
+       return false;
+   }
+      if(x.match(special)){
+          alert("invalid,name cant contain special character")
+          return false;
+      }
+      if(x.length<8){
+          alert("name should be more then 8 character")
+      }
+     
+      if(y.length<6){
+          alert("password should be more then 6 character")
+      }
+     
+    }
+   
+   
+    </script>
+   
+   
+    </head>
+<body>
+<form action="" method="post">
+    <h2>Name:<input type="text" id="name"></h2><br>
+    <h2>Password:<input type="password" id="password"></h2><br>
+ <button type="button" onclick="myfunction()">Submitt</button>  
+   
+   
+    </form>    
+   
+   
+   
+   
+    </body>
+
+
+
+
+</html>
+
+
+

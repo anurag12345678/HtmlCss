@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		/*function validate()
+		{	
+			var result=true;
+			var password=document.getElementById('password').value;
+			var repasswor=document.getElementById('repassword').value
+			var e=document.getElementById("email1").value;
+			var atIndex=e.indexOf('@');
+			var dotIndex=e.lastIndexOf('.');
+			
+			if(atIndex<1){
+				alert('@ should be after 1 character');
+				return false;
+			}
+			if(dotIndex>e.length-3){
+				alert('dot should be properly placed');
+				return false;
+			}if((dotIndex-atIndex)<3){
+				alert('maintain proper gap between dot and atrate');
+				return false;
+			}
+			if(password==""||password==null){
+				alert('enter password');
+				return false;
+			}
+			if(password.length<3){
+				alert('Enter more than three letters');
+				return false;
+			}
+			var com1=e.substring((e.length-3),e.length);
+			
+			if(!com1.match('com')){
+				alert("email is invaild");
+				return false;
+			}
+			return result;
+
+
+			
+		}*/
+	function validate(){
+		var email=document.getElementById('email1').value;
+		var repassword=document.getElementById('repassword').value;
+		var atPosition=email.indexOf('@');
+		var dotPosition=email.lastIndexOf('.');
+		var Password=document.getElementById('password').value;
+		var number=/[0-9]/;
+		var large=/[A-Z]/;
+		var small=/[a-z]/;
+		var special=/[!\@\|#\%\^\&\*\(\)]/;
+
+		if((email=="")||(email==null)){
+			alert('email null nai ho sakta');
+			return false;
+		}
+		if((email.length<=3)){
+			alert('length ko 3 se zaada krna hai');
+			return false;
+		}
+		if(atPosition<1){
+			alert('@ position is invalid');
+			return false;
+		}
+		if(dotPosition>email.length-3){
+			alert('. must be properly placed');
+			return false;
+		}
+		if((dotPosition-atPosition)<3){
+				alert('maintain proper gap between dot and atrate');
+				return false;
+		}
+		if(email.search('com')==-1){
+			alert('com not matched');
+			return false;
+		}
+		if((Password==null)||(Password=="")){
+			alert('Null is not allowed');
+			return false;
+		}
+		if((Password.length)<8)
+	{
+		alert('Enter 8 character');
+		return false;
+	}
+	if(Password.search(number)==-1){
+		alert('Number not found');
+		return false;
+	}
+	if(Password.search(large)==-1){
+		alert('Large no. not found');
+		return false;
+	}
+	if(Password.search(small)==-1){
+		alert('Small no. not found');
+		return false;
+	}
+	if(Password.search(special)==-1){
+		alert('Special charcter not found');
+		return false;
+	}
+	if(Password!=repassword){
+		alert('Password not matched');
+		return false;
+	}
+	}
+		
+		
+	</script>
+</head>
+<body>
+	<form action="submit" method ="post"></form>
+	<label>Email</label>
+	<input type="text" name="email" id="email1">
+	<label>Password</label>
+	<input type="text" id="password">
+	<label>Confirm Password</label>
+	<input type="text" name="" id="repassword">
+	<label>Gender</label>
+	<input type="radio" name="x">male
+	<input type="radio" name="x">female
+	<select>
+		<option>qqqq</option>
+		<option>jjj</option>
+		<option>iii</option>
+		<option selected>www</option>
+	</select>
+
+	<input type="submit" name="" value="validate email" onclick="return validate()">
+</body>
+</html>
